@@ -66,6 +66,22 @@ $(document).ready(function() {
             }
         })
     });
+
+    $('body').on('click','.edit',function (e) {
+        var id = $(this).data('id');
+        var kode = $(this).data('kode_dept');
+        var name = $(this).data('nama_dept');
+        $.ajax({
+            url: BASE_URL + "Master/vedit/" + id,
+            type: 'GET',            
+            success: function (res) {
+                console.log(kode);
+                $('#id').val(id);
+                $('#kode_dept').val(kode);
+                $('#nama_dept').val(name);
+            }
+        })
+    })
 });
 
 function tableDepartement() {

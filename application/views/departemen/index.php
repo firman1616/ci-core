@@ -10,16 +10,16 @@
                         </div>
                         <div class="card-body">
                             <form action="" id="deptForm" name="deptForm" method="POST" enctype="multipart/form-data">
-                            <input type="hidden" name="id" id="id">
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Kode Dept</label>
-                                <input type="text" class="form-control" id="kode_dept" name="kode_dept">
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Nama Dept</label>
-                                <input type="text" class="form-control" id="nama_dept" name="nama_dept">
-                            </div>
-                            <button type="submit" id="save-data" class="btn btn-primary">Save Data</button>
+                                <input type="text" name="id" id="id">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Kode Dept</label>
+                                    <input type="text" class="form-control" id="kode_dept" name="kode_dept">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Nama Dept</label>
+                                    <input type="text" class="form-control" id="nama_dept" name="nama_dept">
+                                </div>
+                                <button type="submit" id="save-data" class="btn btn-primary">Save Data</button>
                             </form>
                         </div>
                     </div>
