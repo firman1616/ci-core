@@ -20,7 +20,7 @@ class Master extends CI_Controller
             'title' => 'Master Setting',
             'conten' => 'conten/master_setting'
         ];
-        $this->load->view('template/conten',$data);
+        $this->load->view('template/conten', $data);
     }
 
     function dept()
@@ -30,28 +30,39 @@ class Master extends CI_Controller
             'conten' => 'departemen/index',
             'footer_js' => array('assets/js/deptjs.js')
         ];
-        $this->load->view('template/conten',$data);
+        $this->load->view('template/conten', $data);
     }
 
-    function tableDept() {
+    function tableDept()
+    {
         $data['master_depts'] = $this->M_data->get_data('tbl_master_dept')->result();
 
         echo json_encode($this->load->view('departemen/table', $data, false));
     }
 
-    function tambahDept() {
+    function tambahDept()
+    {
         $table = 'tbl_master_dept';
         $data = [
             'kode_dept' => $this->input->post('kode_dept'),
             'nama_dept' => $this->input->post('nama_dept')
         ];
-        $this->M_data->simpan_data($table,$data);
+        $this->M_data->simpan_data($table, $data);
         // redirect('Master/dept');
     }
 
-    function hapusDept($id) {
+    function hapusDept($id)
+    {
         $table = 'tbl_master_dept';
         $where = array('id_dept' => $id);
-        $this->M_data->hapus_data($table,$where);
+        $this->M_data->hapus_data($table, $where);
+    }
+
+    function vedit($id)
+    {
+        // $table = 'tbl_master_dept';
+        // $where = array('id_dept' => $id);
+        // $this->M_data->get_data_by_id($table, $where);
+        return $this->db->get_where('tbl_master_dept', array('id_dept' => $id))->row_array();
     }
 }
