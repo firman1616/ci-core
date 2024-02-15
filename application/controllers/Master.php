@@ -7,6 +7,7 @@ class Master extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        $this->load->model('M_count','count');
 
         // if ($this->session->userdata('status') == FALSE || $this->session->userdata('level') != 1) {
 
@@ -18,7 +19,8 @@ class Master extends CI_Controller
     {
         $data = [
             'title' => 'Master Setting',
-            'conten' => 'conten/master_setting'
+            'conten' => 'conten/master_setting',
+            'dept' => $this->count->countDept()
         ];
         $this->load->view('template/conten', $data);
     }
