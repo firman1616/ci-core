@@ -1,0 +1,20 @@
+version: '3'
+services:
+  web:
+    container_name: ci_core
+    build:
+      context: .
+    ports:
+      - "8002:80"
+    depends_on:
+      - db
+  db:
+    container_name: core_db
+    image: mysql:latest
+    environment:
+      MYSQL_DATABASE: core-sistem
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: 4dm1n2024
+      MYSQL_ROOT_PASSWORD: akusayangkamu
+    ports:
+      - "3000:3306"

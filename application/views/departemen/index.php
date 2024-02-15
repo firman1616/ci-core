@@ -2,7 +2,7 @@
     <div class="content">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6">
+                <div class="col-lg-4">
 
                     <div class="card card-primary card-outline">
                         <div class="card-header">
@@ -10,7 +10,7 @@
                         </div>
                         <div class="card-body">
                             <form action="" id="deptForm" name="deptForm" method="POST" enctype="multipart/form-data">
-                                <input type="text" name="id" id="id">
+                                <input type="hidden" name="id" id="id">
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Kode Dept</label>
                                     <input type="text" class="form-control" id="kode_dept" name="kode_dept">
@@ -27,7 +27,7 @@
 
                 </div>
 
-                <div class="col-lg-6">
+                <div class="col-lg-8">
 
                     <div class="card card-primary card-outline">
                         <div class="card-header">
