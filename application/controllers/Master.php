@@ -26,7 +26,7 @@ class Master extends CI_Controller
     function dept()
     {
         $data = [
-            'title' => 'Master Departemen',
+            'title' => 'Departemen',
             'conten' => 'departemen/index',
             'footer_js' => array('assets/js/deptjs.js')
         ];
@@ -40,14 +40,27 @@ class Master extends CI_Controller
         echo json_encode($this->load->view('departemen/table', $data, false));
     }
 
-    function tambahDept()
+    function store()
     {
-        $table = 'tbl_master_dept';
-        $data = [
-            'kode_dept' => $this->input->post('kode_dept'),
-            'nama_dept' => $this->input->post('nama_dept')
-        ];
-        $this->M_data->simpan_data($table, $data);
+        $id = $this->input->post('id');
+        if ($id != null) {
+            $table = 'tbl_master_dept';
+            $dataupdate = [
+                'kode_dept' => $this->input->post('kode_dept'),
+                'nama_dept' => $this->input->post('nama_dept')
+            ];
+            $where = array('id_dept' => $id);
+            $this->M_data->update_data($table,$dataupdate,$where);
+            // echo json_encode($data);
+        }else {
+            $table = 'tbl_master_dept';
+            $data = [
+                'kode_dept' => $this->input->post('kode_dept'),
+                'nama_dept' => $this->input->post('nama_dept')
+            ];
+            $this->M_data->simpan_data($table, $data);
+        }
+        
         // redirect('Master/dept');
     }
 
@@ -60,9 +73,20 @@ class Master extends CI_Controller
 
     function vedit($id)
     {
-        // $table = 'tbl_master_dept';
-        // $where = array('id_dept' => $id);
-        // $this->M_data->get_data_by_id($table, $where);
-        return $this->db->get_where('tbl_master_dept', array('id_dept' => $id))->row_array();
+        $table = 'tbl_master_dept';
+        $where = array('id_dept' => $id);
+        $data = $this->M_data->get_data_by_id($table, $where)->row();        
+        echo json_encode($data);
+    }
+
+    function updateDept($id) {
+        $table = 'tbl_master_dept';
+        $dataupdate = [
+            'kode_dept' => $this->input->post('kode_dept'),
+            'nama_dept' => $this->input->post('nama_dept')
+        ];
+        $where = array('id_dept' => $id);
+        $data = $this->M_data->update_data($table,$dataupdate,$where);
+        echo json_encode($data);
     }
 }

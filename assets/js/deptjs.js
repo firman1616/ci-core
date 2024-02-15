@@ -16,7 +16,7 @@ $(document).ready(function() {
 
         $.ajax({
             data: $('#deptForm').serialize(),
-            url: BASE_URL + "Master/tambahDept",
+            url: BASE_URL + "Master/store",
             type: "POST",
             datatype: 'json',
             success: function(data) {
@@ -24,7 +24,7 @@ $(document).ready(function() {
                 Swal.fire({
                     icon: 'success',
                     title: 'Success',
-                    text: 'Data Berhasil ditambahkan',
+                    text: 'Data Berhasil disimpan',
                     showConfirmButton: false,
                     timer: 1500
                 })
@@ -69,16 +69,16 @@ $(document).ready(function() {
 
     $('body').on('click','.edit',function (e) {
         var id = $(this).data('id');
-        var kode = $(this).data('kode_dept');
-        var name = $(this).data('nama_dept');
         $.ajax({
             url: BASE_URL + "Master/vedit/" + id,
-            type: 'GET',            
-            success: function (res) {
-                console.log(kode);
+            type: 'GET',
+            dataType : 'json',            
+            success: function (data) {
+                console.log(data);
                 $('#id').val(id);
-                $('#kode_dept').val(kode);
-                $('#nama_dept').val(name);
+                $('#kode_dept').val(data.kode_dept);
+                $('#nama_dept').val(data.nama_dept);
+                
             }
         })
     })
