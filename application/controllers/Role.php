@@ -66,4 +66,55 @@ class Role extends CI_Controller
         $data = $this->M_data->get_data_by_id($table, $where)->row();
         echo json_encode($data);
     }
+
+    function role_permission() {
+        $data = [
+            'title' => 'Role Permission',
+            'conten' => 'role_permission/index',
+            'footer_js' => array('assets/js/rolepermissionjs.js')
+        ];
+        $this->load->view('template/conten', $data);
+    }
+
+    function tableRolepermission()
+    {
+        $data['master_role_permission'] = $this->M_data->get_data('tbl_master_role_permission')->result();
+
+        echo json_encode($this->load->view('role_permission/table', $data, false));
+    }
+
+    function store_permission() {
+        $id = $this->input->post('id');
+        if ($id != null) {
+            $table = 'tbl_master_role_permission';
+            $dataupdate = [
+                'name_permission' => $this->input->post('nama_role_permission')
+            ];
+            $where = array('id_permission' => $id);
+            $this->M_data->update_data($table, $dataupdate, $where);
+            // echo json_encode($data);
+        } else {
+            $table = 'tbl_master_role_permission';
+            $data = [
+                'name_permission' => $this->input->post('nama_role_permission')
+            ];
+            $this->M_data->simpan_data($table, $data);
+        }
+    }
+
+    function veditpermission($id)
+    {
+        $table = 'tbl_master_role_permission';
+        $where = array('id_permission' => $id);
+        $data = $this->M_data->get_data_by_id($table, $where)->row();
+        echo json_encode($data);
+    }
+
+    function deletepermission($id)
+    {
+        $table = 'tbl_master_role_permission';
+        $where = array('id_permission' => $id);
+        $this->M_data->hapus_data($table, $where);
+    }
+
 }

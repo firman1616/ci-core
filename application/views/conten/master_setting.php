@@ -24,7 +24,7 @@
                     <!-- small card -->
                     <div class="small-box bg-info">
                         <div class="inner">
-                            <h3>150</h3>
+                            <h3><?= $role ?></h3>
 
                             <p>Role</p>
                         </div>
@@ -41,14 +41,31 @@
                     <!-- small card -->
                     <div class="small-box bg-info">
                         <div class="inner">
-                            <h3>150</h3>
+                            <h3><?= $rolePermit ?></h3>
+
+                            <p>Role Permission</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fas fa-unlock"></i>
+                        </div>
+                        <a href="<?= site_url('Role/role_permission') ?>" class="small-box-footer">
+                            More info <i class="fas fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-6">
+                    <!-- small card -->
+                    <div class="small-box bg-info">
+                        <div class="inner">
+                            <h3><?= $modul ?> </h3>
 
                             <p>Modul Management</p>
                         </div>
                         <div class="icon">
                             <i class="fas fa-umbrella"></i>
                         </div>
-                        <a href="#" class="small-box-footer">
+                        <a href="<?= site_url('Modul') ?>" class="small-box-footer">
                             More info <i class="fas fa-arrow-circle-right"></i>
                         </a>
                     </div>
