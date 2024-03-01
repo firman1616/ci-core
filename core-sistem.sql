@@ -11,7 +11,7 @@
  Target Server Version : 100428 (10.4.28-MariaDB)
  File Encoding         : 65001
 
- Date: 20/02/2024 22:03:15
+ Date: 01/03/2024 16:20:55
 */
 
 SET NAMES utf8mb4;
@@ -36,6 +36,18 @@ CREATE TABLE `tbl_master_role_permission`  (
   `id_permission` int NOT NULL AUTO_INCREMENT,
   `name_permission` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id_permission`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Table structure for tbl_modul
+-- ----------------------------
+DROP TABLE IF EXISTS `tbl_modul`;
+CREATE TABLE `tbl_modul`  (
+  `id_modul` int NOT NULL AUTO_INCREMENT,
+  `nama_modul` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `url_modul` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL,
+  `icon_modul` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  PRIMARY KEY (`id_modul`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------

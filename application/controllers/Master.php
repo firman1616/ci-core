@@ -21,7 +21,9 @@ class Master extends CI_Controller
             'title' => 'Master Setting',
             'conten' => 'conten/master_setting',
             'dept' => $this->count->countDept(),
-            'role' => $this->count->countRole()
+            'role' => $this->count->countRole(),
+            'rolePermit' => $this->count->countRolePermit(),
+            'modul' => $this->count->countModul(),
         ];
         $this->load->view('template/conten', $data);
     }
