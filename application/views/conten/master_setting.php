@@ -58,7 +58,7 @@
                     <!-- small card -->
                     <div class="small-box bg-info">
                         <div class="inner">
-                            <h3><?= $modul ?></h3>
+                            <h3><?= $modul ?> </h3>
 
                             <p>Modul Management</p>
                         </div>
