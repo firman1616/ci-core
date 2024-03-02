@@ -34,6 +34,11 @@
 <script src="<?= base_url('assets/template') ?>/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
 <script src="<?= base_url('assets/template') ?>/plugins/sweetalert2/sweetalert2.min.js"></script>
 
+<!-- Select2 -->
+<script src="<?= base_url('assets/template') ?>/plugins/select2/js/select2.full.min.js"></script>
+<!-- Bootstrap Switch -->
+<script src="<?= base_url('assets/template') ?>/plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
+
 
 <script>
   $(function() {
@@ -57,6 +62,12 @@
 
 <script>
   var BASE_URL = "<?php echo base_url(); ?>";
+</script>
+
+<script>
+  $("input[data-bootstrap-switch]").each(function(){
+  $(this).bootstrapSwitch('state', $(this).prop('checked'));
+  })
 </script>
 
 <?php
