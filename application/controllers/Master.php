@@ -24,6 +24,7 @@ class Master extends CI_Controller
             'role' => $this->count->countRole(),
             'rolePermit' => $this->count->countRolePermit(),
             'modul' => $this->count->countModul(),
+            'menu' => $this->count->countMenu(),
         ];
         $this->load->view('template/conten', $data);
     }

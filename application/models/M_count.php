@@ -21,4 +21,8 @@ class M_count extends CI_Model
     return $this->db->query("SELECT * FROM tbl_modul")->num_rows();
   }
 
+  function countMenu() {
+    return $this->db->query("SELECT * FROM tbl_menu")->num_rows();
+  }
+
 }
