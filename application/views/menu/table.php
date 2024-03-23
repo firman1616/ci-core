@@ -4,7 +4,7 @@
             <th>No</th>
             <th>Nama Menu</th>
             <th>URL Menu</th>
-            <th>Icon Modul</th>
+            <th>Nama Modul</th>
             <th>Status</th>
             <th>Action</th>
         </tr>

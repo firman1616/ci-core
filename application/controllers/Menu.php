@@ -61,11 +61,18 @@ class Menu extends CI_Controller
         }
     }
 
-    function delete($id)
-    {
+    // function delete($id)
+    // {
+    //     $table = 'tbl_menu';
+    //     $where = array('id_menu' => $id);
+    //     $this->M_data->hapus_data($table, $where);
+    // }
+
+    function updateStatus($id) {
         $table = 'tbl_menu';
         $where = array('id_menu' => $id);
-        $this->M_data->hapus_data($table, $where);
+        $data = $this->M_data->get_data_by_id($table, $where)->row();
+        echo json_encode($data);
     }
 
     function vedit($id)

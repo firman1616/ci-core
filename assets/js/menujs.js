@@ -72,15 +72,15 @@ $(document).ready(function() {
     $('body').on('click','.edit',function (e) {
         var id = $(this).data('id');
         $.ajax({
-            url: BASE_URL + "Modul/vedit/" + id,
+            url: BASE_URL + "Menu/vedit/" + id,
             type: 'GET',
             dataType : 'json',            
             success: function (data) {
                 console.log(data);
                 $('#id').val(id);
-                $('#nama_modul').val(data.nama_modul);
-                $('#url_modul').val(data.url_modul);
-                $('#icon_modul').val(data.icon_modul);
+                $('#nama_menu').val(data.nama_menu);
+                $('#url_menu').val(data.url_menu);
+                $('#modul').val(data.modul_id).trigger('change');
                 
             }
         })

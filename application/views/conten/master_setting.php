@@ -75,7 +75,7 @@
                     <!-- small card -->
                     <div class="small-box bg-info">
                         <div class="inner">
-                            <h3>150</h3>
+                            <h3><?= $menu ?></h3>
 
                             <p>Menu Management</p>
                         </div>
@@ -93,7 +93,7 @@
                     <div class="small-box bg-info">
                         <div class="inner">
                             <h3>150</h3>
-
+                                                                                                                                                
                             <p>Sub Menu Management</p>
                         </div>
                         <div class="icon">
