@@ -63,6 +63,11 @@
 <script>
   var BASE_URL = "<?php echo base_url(); ?>";
 </script>
+<script>
+  $(function () {
+    $('.select2').select2()
+  })
+</script>
 
 <script>
   $("input[data-bootstrap-switch]").each(function(){
