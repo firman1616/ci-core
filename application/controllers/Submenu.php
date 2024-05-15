@@ -19,17 +19,45 @@ class Submenu extends CI_Controller
         $data = [
             'title' => 'Sub Menu',
             'conten' => 'sub_menu/index',
-            'footer_js' => array('assets/js/menujs.js'),
+            'footer_js' => array('assets/js/submenujs.js'),
             'modul' => $this->M_data->get_data('tbl_modul'),
+            // 'modul' => $this->M_data->get_data('tbl_modul')
         ];
         $this->load->view('template/conten',$data);
     }
 
-    function tableMenu()
-    {
-        $data['menu'] = $this->set->dataMenu()->result();
+    public function getMenu(){
+        // Ambil data ID Provinsi yang dikirim via ajax post
+        $modul_id = $this->input->post('modul');
+        
+        $menu = $this->set->selectMenu($modul_id);
+        
+        // Buat variabel untuk menampung tag-tag option nya
+        // Set defaultnya dengan tag option Pilih
+        $lists = "<option value=''>Pilih</option>";
+        
+        foreach($menu->result() as $data){
+          $lists .= "<option value='".$data->id_menu."'>".$data->nama_menu."</option>"; // Tambahkan tag option ke variabel $lists
+        }
+        
+        $callback = array('list_menu'=>$lists); // Masukan variabel lists tadi ke dalam array $callback dengan index array : list_kota
+        echo json_encode($callback); // konversi varibael $callback menjadi JSON
+      }
+    
 
-        echo json_encode($this->load->view('menu/table', $data, false));
+    // function getMenu() {
+    //     $modul_id = $this->input->post('modul');
+    //     $menu = $this->set->selectMenu($modul_id);
+    //     // die(var_dump($modul_id));
+    //     echo json_encode($menu);
+    // }
+
+
+    function tableSubMenu()
+    {
+        $data['submenu'] = $this->M_data->get_data('tbl_sub_menu')->result();
+
+        echo json_encode($this->load->view('sub_menu/table', $data, false));
     }
 
     function store()
