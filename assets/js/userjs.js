@@ -53,7 +53,7 @@ $(document).ready(function() {
             if (result.isConfirmed) {
                 var id = $(this).data('id');
                 $.ajax({
-                    url: BASE_URL + "Role/delete/" + id,
+                    url: BASE_URL + "User/delete/" + id,
                     // data: { id: id },
                     // type: 'DELETE'
                     method: 'POST'
@@ -71,13 +71,15 @@ $(document).ready(function() {
     $('body').on('click','.edit',function (e) {
         var id = $(this).data('id');
         $.ajax({
-            url: BASE_URL + "Role/vedit/" + id,
+            url: BASE_URL + "user/vedit/" + id,
             type: 'GET',
             dataType : 'json',            
             success: function (data) {
                 console.log(data);
                 $('#id').val(id);
-                $('#nama_role').val(data.role_name);
+                $('#nama_user').val(data.name);
+                $('#username').val(data.username);
+                $('#role').val(data.role_id).trigger('change');;
                 
             }
         })

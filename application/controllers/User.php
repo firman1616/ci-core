@@ -28,7 +28,7 @@ class User extends CI_Controller
 
     function tableUser()
     {
-        $data['user'] = $this->M_data->get_data('tbl_user')->result();
+        $data['user'] = $this->M_data->user_list()->result();
 
         echo json_encode($this->load->view('user/table', $data, false));
     }
@@ -63,15 +63,15 @@ class User extends CI_Controller
 
     function delete($id)
     {
-        $table = 'tbl_user_role';
-        $where = array('id_role' => $id);
+        $table = 'tbl_user';
+        $where = array('id_user' => $id);
         $this->M_data->hapus_data($table, $where);
     }
 
     function vedit($id)
     {
-        $table = 'tbl_user_role';
-        $where = array('id_role' => $id);
+        $table = 'tbl_user';
+        $where = array('id_user' => $id);
         $data = $this->M_data->get_data_by_id($table, $where)->row();
         echo json_encode($data);
     }

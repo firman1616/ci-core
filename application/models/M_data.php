@@ -26,4 +26,18 @@ class M_data extends CI_Model
     $this->db->delete($table, $where);
   }
 
+  function user_list()
+  {
+    return $this->db->query("SELECT
+    id_user,
+    name,
+    username,
+    password,
+    is_active,
+    tur.role_name
+  from
+    tbl_user tu
+  join tbl_user_role tur on
+    tur.id_role = tu.role_id");
+  }
 }
